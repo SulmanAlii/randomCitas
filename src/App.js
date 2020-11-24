@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./frases.css";
 
 function App() {
+  const [cita, setCita] = useState({});
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/citarandom")
+      .then((data) => data.json())
+      .then((citas) => setCita(citas));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <div className="cita_frase">
+    <h2 className="frase_texto"> “{cita.frase}” </h2>
+  </div>
+      <div
+        className="citas"
+        style={{
+          backgroundImage: `url(${cita.url})`,
+          height: "100vh",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+     
+      </div>
     </div>
   );
 }
