@@ -7,7 +7,7 @@ function App() {
   const [cita, setCita] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/citarandom")
+    fetch("https://randommcitas.herokuapp.com/api/citarandom")
       .then((data) => data.json())
       .then((citas) => setCita(citas));
   }, []);
