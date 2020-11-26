@@ -1,4 +1,4 @@
-Simple (nodeJs+ReactJs) app that returns quote or phrase on page.
+Simple (nodeJs+ReactJs) app that returns random quote or phrase on page.
 
 LINK: https://randommcitas.herokuapp.com/
 
